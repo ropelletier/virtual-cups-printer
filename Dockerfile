@@ -1,5 +1,5 @@
-FROM debian:bullseye-slim
-ARG USERNAME=print PASSWORD=print
+FROM ubuntu:jammy
+ARG USERNAME=admin PASSWORD=pr1nt
 ENV \
     PRINTER_ID=Paperless_Printer \
     PRINTER_NAME=Paperless\ Printer \
