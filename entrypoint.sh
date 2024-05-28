@@ -8,5 +8,5 @@ set -ev
 #cp /usr/share/ppd/cups-pdf/CUPS-PDF_noopt.ppd /etc/cups/ppd/${PRINTER_ID}.ppd
 
 
-/usr/sbin/avahi-daemon --daemonize
+#/usr/sbin/avahi-daemon --daemonize
 exec /usr/sbin/cupsd -f
