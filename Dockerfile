@@ -18,6 +18,13 @@ RUN useradd -G lp,lpadmin -s /bin/bash -p "$(openssl passwd -1 $PASSWORD)" $USER
 RUN apt-get install -y avahi-daemon
 RUN sed -i 's/.*enable\-dbus=.*/enable\-dbus\=no/' /etc/avahi/avahi-daemon.conf
 
+git clone https://github.com/alexivkin/CUPS-PDF-to-PDF.git
+cd CUPS-PDF-to-PDF
+grep -rl '.setpdfwrite' * | xargs sed -i 's/.setpdfwrite//g'
+gcc -O9 -s -o cups-pdf cups-pdf.c -lcups
+sudo cp /usr/lib/cups/backend/cups-pdf /usr/lib/cups/backend/cups-pdf.bak
+sudo cp cups-pdf /usr/lib/cups/backend/
+
 # Copy configs
 WORKDIR /opt/vp
 COPY . .
