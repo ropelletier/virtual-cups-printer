@@ -9,7 +9,7 @@ ENV \
 
 # Dependenicies
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends cups printer-driver-cups-pdf gettext
+RUN apt-get install -y --no-install-recommends cups printer-driver-cups-pdf gettext php nano
 
 # Cups config/setup
 RUN useradd -G lp,lpadmin -s /bin/bash -p "$(openssl passwd -1 $PASSWORD)" $USERNAME
