@@ -1,6 +1,9 @@
 #!/bin/bash
 set -ev
 
+/etc/apparmor.d/usr.sbin.cupsd /etc/apparmor.d/disable
+/etc/init.d/apparmor restart
+
 #cat cups-pdf.conf | envsubst > /etc/cups/cups-pdf.conf
 #cat cupsd.conf | envsubst > /etc/cups/cupsd.conf
 #cat printers.conf | envsubst > /etc/cups/printers.conf
